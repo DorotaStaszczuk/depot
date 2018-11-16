@@ -743,3 +743,270 @@ Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2018-11-15 16:57:14 +0100
 
 
 Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2018-11-15 16:57:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCarts (20181116101936)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181116101936"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLineItems (20181116103741)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "cart_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_line_items_on_product_id" ON "line_items" ("product_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20181116103741"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[35mProduct Load (0.6ms)[0m  SELECT "products".* FROM "products" ORDER BY "products".updated_at DESC LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY "products".title ASC[0m
+  Rendered store/index.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 357ms (Views: 340.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2018-11-16 12:32:41 +0100
+
+
+Started POST "/line_items?product_id=2" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+Processing by LineItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "product_id"=>"2"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Fri, 16 Nov 2018 11:32:56 UTC +00:00], ["updated_at", Fri, 16 Nov 2018 11:32:56 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "line_items" ("cart_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["cart_id", 1], ["created_at", Fri, 16 Nov 2018 11:32:56 UTC +00:00], ["product_id", 2], ["updated_at", Fri, 16 Nov 2018 11:32:56 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = ? ORDER BY "carts"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 70ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCart Load (0.2ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered carts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-16 12:32:56 +0100
+
+
+Started GET "/carts" for 127.0.0.1 at 2018-11-16 12:35:22 +0100
+Processing by CartsController#index as HTML
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT "carts".* FROM "carts"[0m
+  Rendered carts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+Processing by StoreController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" ORDER BY "products".updated_at DESC LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY "products".title ASC[0m
+  Rendered store/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2018-11-16 12:35:34 +0100
+
+
+Started POST "/line_items?product_id=3" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+Processing by LineItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "product_id"=>"3"}
+  [1m[35mCart Load (0.2ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_items" ("cart_id", "created_at", "product_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["cart_id", 1], ["created_at", Fri, 16 Nov 2018 11:35:38 UTC +00:00], ["product_id", 3], ["updated_at", Fri, 16 Nov 2018 11:35:38 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT "carts".* FROM "carts" WHERE "carts"."id" = ? ORDER BY "carts"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/carts/1
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCart Load (0.1ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered carts/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-16 12:35:38 +0100
