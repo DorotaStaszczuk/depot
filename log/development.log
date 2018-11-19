@@ -2352,3 +2352,242 @@ NoMethodError (undefined method `id' for nil:NilClass):
   Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
   Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
   Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (59.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-19 15:42:30 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[35mCart Load (2.1ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY "products".updated_at DESC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" ORDER BY "products".title ASC
+  Rendered store/index.html.erb within layouts/application (37.0ms)
+  [1m[36mLineItem Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "line_items" WHERE "line_items"."cart_id" = ? LIMIT 1[0m  [["cart_id", 1]]
+  [1m[35mLineItem Load (0.2ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered line_items/_line_item.html.erb (6.1ms)
+  Rendered carts/_cart.html.erb (18.0ms)
+Completed 200 OK in 425ms (Views: 401.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/jquery-ui/version.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/jquery-ui/effects/effect-blind.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2018-11-19 15:42:31 +0100
+
+
+Started POST "/line_items?product_id=2" for 127.0.0.1 at 2018-11-19 15:42:34 +0100
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "product_id"=>"2"}
+  [1m[35mCart Load (0.1ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ? AND "line_items"."product_id" = 2 LIMIT 1  [["cart_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  UPDATE "line_items" SET "quantity" = ?, "updated_at" = ? WHERE "line_items"."id" = 3  [["quantity", 4], ["updated_at", Mon, 19 Nov 2018 14:42:34 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered line_items/_line_item.html.erb (3.0ms)
+  Rendered carts/_cart.html.erb (6.7ms)
+  Rendered line_items/create.js.erb (10.2ms)
+Completed 200 OK in 32ms (Views: 17.1ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/line_items?product_id=2" for 127.0.0.1 at 2018-11-19 15:42:35 +0100
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "product_id"=>"2"}
+  [1m[35mCart Load (0.1ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ? AND "line_items"."product_id" = 2 LIMIT 1  [["cart_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "line_items" SET "quantity" = ?, "updated_at" = ? WHERE "line_items"."id" = 3  [["quantity", 5], ["updated_at", Mon, 19 Nov 2018 14:42:35 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered line_items/_line_item.html.erb (2.7ms)
+  Rendered carts/_cart.html.erb (6.2ms)
+  Rendered line_items/create.js.erb (8.6ms)
+Completed 200 OK in 23ms (Views: 16.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/line_items?product_id=2" for 127.0.0.1 at 2018-11-19 15:42:37 +0100
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "product_id"=>"2"}
+  [1m[35mCart Load (0.1ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ? AND "line_items"."product_id" = 2 LIMIT 1  [["cart_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "line_items" SET "quantity" = ?, "updated_at" = ? WHERE "line_items"."id" = 3  [["quantity", 6], ["updated_at", Mon, 19 Nov 2018 14:42:37 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mLineItem Load (0.2ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered line_items/_line_item.html.erb (2.9ms)
+  Rendered carts/_cart.html.erb (8.5ms)
+  Rendered line_items/create.js.erb (10.7ms)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[35mCart Load (1.8ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" ORDER BY "products".updated_at DESC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" ORDER BY "products".title ASC
+  Rendered store/index.html.erb within layouts/application (29.9ms)
+  [1m[36mLineItem Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "line_items" WHERE "line_items"."cart_id" = ? LIMIT 1[0m  [["cart_id", 1]]
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? ORDER BY "products"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered line_items/_line_item.html.erb (5.0ms)
+  Rendered carts/_cart.html.erb (16.9ms)
+Completed 200 OK in 143ms (Views: 120.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/carts.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/line_items.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/products.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/store.css?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/jquery-ui/version.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/jquery-ui/effects/effect-blind.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/carts.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/line_items.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/products.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/store.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/cs.jpg" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/ruby.jpg" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started GET "/assets/rtp.jpg" for 127.0.0.1 at 2018-11-19 16:09:41 +0100
+
+
+Started DELETE "/carts/1" for 127.0.0.1 at 2018-11-19 16:09:54 +0100
+Processing by CartsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"H1fNhzl1kd/TmBTLMQeXr1KKOIXJG4lfh8wIuGMiHns=", "id"=>"1"}
+  [1m[35mCart Load (0.3ms)[0m  SELECT "carts".* FROM "carts" WHERE "carts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mLineItem Load (0.2ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = ?[0m  [["id", 2]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = ?  [["id", 3]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.6ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 11ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/carts_controller.rb:58:in `destroy'
+
+
+  Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/dorota/.rvm/gems/ruby-2.2.4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (63.1ms)
